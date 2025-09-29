@@ -14,7 +14,7 @@ function App() {
       <div className="min-h-screen bg-gray-50">
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="dashboard" element={<Dashboard />} /> 
+            <Route path="/" element={<Dashboard />} /> 
             <Route path="blog" element={<BlogList />} />
             <Route path="blog/new" element={<NewBlogPost />} />
             <Route path="challenges" element={<ChallengeList />} />

@@ -40,7 +40,7 @@ const Layout: React.FC = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link
-                to="/dashboard"
+                to="/"
                 className="text-xl font-bold hover:text-github-accent transition-colors"
               >
                 100Days
