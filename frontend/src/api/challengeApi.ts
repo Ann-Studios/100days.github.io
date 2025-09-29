@@ -1,7 +1,7 @@
 // api/challengeApi.ts
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://one00daysbackend.onrender.com/api';
 
 export interface Challenge {
   _id?: string;
