@@ -8,6 +8,7 @@ export interface Blog {
   id: string;
   title: string;
   content: string;
+  excerpt: string; // Add this field
   author: string;
   tags: string[];
   isPublished: boolean;

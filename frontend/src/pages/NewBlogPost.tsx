@@ -1,3 +1,4 @@
+// NewBlogPost.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Save, X } from 'lucide-react';
@@ -10,7 +11,7 @@ const NewBlogPost: React.FC = () => {
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [author, setAuthor] = useState(''); // New author field
+  const [author, setAuthor] = useState('');
   const [tags, setTags] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,17 +26,19 @@ const NewBlogPost: React.FC = () => {
         id: generateId(),
         title: title.trim(),
         content: content.trim(),
-        excerpt: content.trim().slice(0, 200) + (content.length > 200 ? '...' : ''),
-        author: author.trim(), // Include author
+        excerpt: content.trim().slice(0, 200) + (content.length > 200 ? '...' : ''), // Add excerpt
+        author: author.trim(),
+        tags: tags.split(',').map(tag => tag.trim()).filter(Boolean),
+        isPublished: true,
         createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: tags.split(',').map(tag => tag.trim()).filter(Boolean)
+        updatedAt: new Date()
       };
 
       await createBlogPost(newPost);
       navigate('/blog');
     } catch (error) {
       console.error('Failed to create blog post:', error);
+      alert('Failed to create blog post. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

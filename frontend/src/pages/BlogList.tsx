@@ -1,3 +1,4 @@
+// BlogList.tsx - Add safety checks
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Search, Filter } from 'lucide-react';
@@ -9,15 +10,18 @@ const BlogList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
 
+  // Safety check - ensure blogPosts is always an array
+  const safeBlogPosts = Array.isArray(blogPosts) ? blogPosts : [];
+
   // Get all unique tags
-  const allTags = [...new Set(blogPosts.flatMap(post => post.tags))];
+  const allTags = [...new Set(safeBlogPosts.flatMap(post => post.tags || []))];
 
   // Filter posts
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.author.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTag = selectedTag === '' || post.tags.includes(selectedTag);
+  const filteredPosts = safeBlogPosts.filter(post => {
+    const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.author?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag === '' || (post.tags && post.tags.includes(selectedTag));
     return matchesSearch && matchesTag;
   });
 
@@ -87,7 +91,7 @@ const BlogList: React.FC = () => {
               <BlogPostCard key={post.id} post={post} />
             ))}
           </div>
-        ) : blogPosts.length === 0 ? (
+        ) : safeBlogPosts.length === 0 ? (
           <div className="enhanced-card geometric-pattern text-center py-20 rounded-xl">
             <div className="text-6xl mb-4">✍️</div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Start Your Blog Journey</h3>
