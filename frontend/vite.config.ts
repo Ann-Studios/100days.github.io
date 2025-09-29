@@ -4,18 +4,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
+    port: 5173, // Use Vite's default port
   },
-  define: {
-    'process.env': {},
-    global: 'globalThis',
-  },
-  resolve: {
-    alias: {
-      process: 'process/browser',
-    },
-  },
-  optimizeDeps: {
-    include: ['process'],
-  },
+  build: {
+    outDir: 'dist'
+  }
 })
