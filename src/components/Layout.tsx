@@ -34,14 +34,14 @@ const Layout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-      <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+      <nav className="nav-github sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link
                 to="/"
-                className="text-xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
+                className="text-xl font-bold text-[var(--accent)] hover:text-[var(--accent)] transition-colors"
               >
                 100Days
               </Link>
@@ -50,8 +50,8 @@ const Layout: React.FC = () => {
                 <Link
                   to="/blog"
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${isActive('/blog')
-                    ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'text-[var(--accent)] bg-[var(--primary)]'
+                      : 'text-[var(--text)] hover:bg-[var(--primary)]'
                     }`}
                 >
                   <BookOpen size={18} />
@@ -61,8 +61,8 @@ const Layout: React.FC = () => {
                 <Link
                   to="/challenges"
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${isActive('/challenges')
-                    ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'text-[var(--accent)] bg-[var(--primary)]'
+                      : 'text-[var(--text)] hover:bg-[var(--primary)]'
                     }`}
                 >
                   <Target size={18} />
@@ -75,7 +75,7 @@ const Layout: React.FC = () => {
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 rounded-lg hover:bg-[var(--primary)] transition-colors"
                 aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
@@ -83,7 +83,7 @@ const Layout: React.FC = () => {
 
               <Link
                 to="/blog/new"
-                className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors hidden sm:flex items-center space-x-2"
+                className="btn-github-primary px-4 py-2 rounded-lg hidden sm:flex items-center space-x-2"
               >
                 <Plus size={18} />
                 <span>New Post</span>
@@ -91,7 +91,7 @@ const Layout: React.FC = () => {
 
               <Link
                 to="/challenges/new"
-                className="bg-success-600 text-white px-4 py-2 rounded-lg hover:bg-success-700 transition-colors hidden sm:flex items-center space-x-2"
+                className="btn-github-success px-4 py-2 rounded-lg hidden sm:flex items-center space-x-2"
               >
                 <Plus size={18} />
                 <span>New Challenge</span>
@@ -106,13 +106,13 @@ const Layout: React.FC = () => {
       </main>
 
       {/* Mobile navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-2">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 nav-github border-t border-[var(--secondary)] px-4 py-2">
         <div className="flex justify-around">
           <Link
             to="/"
             className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${isActive('/')
-              ? 'text-primary-600'
-              : 'text-gray-600 dark:text-gray-300'
+                ? 'text-[var(--accent)]'
+                : 'text-[var(--text)]'
               }`}
           >
             <Home size={20} />
@@ -122,8 +122,8 @@ const Layout: React.FC = () => {
           <Link
             to="/blog"
             className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${isActive('/blog')
-              ? 'text-primary-600'
-              : 'text-gray-600 dark:text-gray-300'
+                ? 'text-[var(--accent)]'
+                : 'text-[var(--text)]'
               }`}
           >
             <BookOpen size={20} />
@@ -133,8 +133,8 @@ const Layout: React.FC = () => {
           <Link
             to="/challenges"
             className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${isActive('/challenges')
-              ? 'text-primary-600'
-              : 'text-gray-600 dark:text-gray-300'
+                ? 'text-[var(--accent)]'
+                : 'text-[var(--text)]'
               }`}
           >
             <Target size={20} />

@@ -42,13 +42,13 @@ const ChallengeList: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
           <div>
-            <h1 className="text-3xl font-bold">Your Challenges</h1>
-            <p className="mt-1">Track your progress on your 100-day journeys</p>
+            <h1 className="text-3xl font-bold text-github">Your Challenges</h1>
+            <p className="mt-1 text-github">Track your progress on your 100-day journeys</p>
           </div>
 
           <Link
             to="/challenges/new"
-            className="flex items-center space-x-2 bg-success-600 text-white px-6 py-3 rounded-lg hover:bg-success-700 transition-colors w-fit"
+            className="flex items-center space-x-2 btn-github-primary px-6 py-3 rounded-lg transition-colors w-fit"
           >
             <Plus size={20} />
             <span>New Challenge</span>
@@ -58,7 +58,7 @@ const ChallengeList: React.FC = () => {
         {/* Active Challenges */}
         {activeChallenges.length > 0 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Active Challenges</h2>
+            <h2 className="text-2xl font-semibold text-github">Active Challenges</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {activeChallenges.map((challenge) => (
                 <ChallengeCard
@@ -74,7 +74,7 @@ const ChallengeList: React.FC = () => {
         {/* Completed Challenges */}
         {completedChallenges.length > 0 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-900">Completed Challenges 🎉</h2>
+            <h2 className="text-2xl font-semibold text-github">Completed Challenges 🎉</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {completedChallenges.map((challenge) => (
                 <ChallengeCard key={challenge.id} challenge={challenge} />
@@ -86,7 +86,7 @@ const ChallengeList: React.FC = () => {
         {/* Paused Challenges */}
         {pausedChallenges.length > 0 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-900">Paused Challenges</h2>
+            <h2 className="text-2xl font-semibold text-github">Paused Challenges</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {pausedChallenges.map((challenge) => (
                 <ChallengeCard key={challenge.id} challenge={challenge} />
@@ -99,14 +99,14 @@ const ChallengeList: React.FC = () => {
         {challenges.length === 0 && (
           <div className="enhanced-card geometric-pattern text-center py-20 rounded-xl">
             <Target className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
+            <h3 className="text-2xl font-semibold text-github mb-4">Ready to Start Your Journey?</h3>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">
               100-day challenges are a powerful way to build habits, learn new skills, and achieve your goals.
               What will you commit to for the next 100 days?
             </p>
             <Link
               to="/challenges/new"
-              className="bg-success-600 text-white px-8 py-4 rounded-lg hover:bg-success-700 transition-colors text-lg font-medium"
+              className="btn-github-primary px-8 py-4 rounded-lg transition-colors text-lg font-medium"
             >
               Create Your First Challenge
             </Link>

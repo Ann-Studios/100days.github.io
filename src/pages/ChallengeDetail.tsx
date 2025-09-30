@@ -14,11 +14,11 @@ const ChallengeDetail: React.FC = () => {
         return (
             <div className="text-center py-20">
                 <Target className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">No Challenge Selected</h2>
+                <h2 className="text-2xl font-bold text-github mb-4">No Challenge Selected</h2>
                 <p className="text-gray-600 mb-8">Please select a challenge to view its details.</p>
                 <Link
                     to="/challenges"
-                    className="bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors"
+                    className="btn-github-primary px-6 py-3 rounded-lg transition-colors"
                 >
                     Back to Challenges
                 </Link>
@@ -32,11 +32,11 @@ const ChallengeDetail: React.FC = () => {
         return (
             <div className="text-center py-20">
                 <Target className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Challenge Not Found</h2>
+                <h2 className="text-2xl font-bold text-github mb-4">Challenge Not Found</h2>
                 <p className="text-gray-600 mb-8">The challenge you're looking for doesn't exist.</p>
                 <Link
                     to="/challenges"
-                    className="bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors"
+                    className="btn-github-primary px-6 py-3 rounded-lg transition-colors"
                 >
                     Back to Challenges
                 </Link>
@@ -85,7 +85,7 @@ const ChallengeDetail: React.FC = () => {
 
             {/* Challenge Header */}
             <div className="enhanced-card rounded-xl p-8 mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-4">{challenge.title}</h1>
+                <h1 className="text-3xl font-bold text-github mb-4">{challenge.title}</h1>
                 <p className="text-lg text-gray-600 mb-6">{challenge.description}</p>
 
                 <div className="flex items-center space-x-4 text-sm text-gray-500">
@@ -102,23 +102,23 @@ const ChallengeDetail: React.FC = () => {
 
             {/* Stats */}
             <div className="grid md:grid-cols-4 gap-6 mb-8">
-                <div className="enhanced-card p-6 text-center">
-                    <div className="text-2xl font-bold text-primary-600">{challenge.currentDay}</div>
+                <div className="stats-card-github p-6 text-center rounded-lg">
+                    <div className="text-2xl font-bold text-github-accent">{challenge.currentDay}</div>
                     <div className="text-sm text-gray-600">Current Day</div>
                 </div>
 
-                <div className="enhanced-card p-6 text-center">
-                    <div className="text-2xl font-bold text-success-600">{completedCount}</div>
+                <div className="stats-card-github p-6 text-center rounded-lg">
+                    <div className="text-2xl font-bold text-github-accent">{completedCount}</div>
                     <div className="text-sm text-gray-600">Completed Days</div>
                 </div>
 
-                <div className="enhanced-card p-6 text-center">
-                    <div className="text-2xl font-bold text-warning-600">{100 - challenge.currentDay}</div>
+                <div className="stats-card-github p-6 text-center rounded-lg">
+                    <div className="text-2xl font-bold text-github-accent">{100 - challenge.currentDay}</div>
                     <div className="text-sm text-gray-600">Days Remaining</div>
                 </div>
 
-                <div className="enhanced-card p-6 text-center">
-                    <div className="text-2xl font-bold text-gray-900">{Math.round(progress)}%</div>
+                <div className="stats-card-github p-6 text-center rounded-lg">
+                    <div className="text-2xl font-bold text-github">{Math.round(progress)}%</div>
                     <div className="text-sm text-gray-600">Progress</div>
                 </div>
             </div>
@@ -126,7 +126,7 @@ const ChallengeDetail: React.FC = () => {
             {/* Progress */}
             <div className="enhanced-card p-6 mb-8">
                 <div className="flex justify-between items-center mb-4">
-                    <span className="text-lg font-semibold text-gray-900">Progress Overview</span>
+                    <span className="text-lg font-semibold text-github">Progress Overview</span>
                     <span className="text-sm font-medium text-gray-600">{Math.round(progress)}% Complete</span>
                 </div>
                 <ProgressBar progress={progress} color="primary" className="mb-6" />
@@ -136,7 +136,7 @@ const ChallengeDetail: React.FC = () => {
                         onClick={() => handleToggleDay(daysSinceStart)}
                         className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors w-full justify-center ${challenge.completedDays[daysSinceStart - 1]
                             ? 'bg-success-100 text-success-700 border border-success-200'
-                            : 'bg-primary-100 text-primary-700 border border-primary-200 hover:bg-primary-200'
+                            : 'btn-github hover:bg-github-primary'
                             }`}
                     >
                         <CheckCircle size={16} />
@@ -149,7 +149,7 @@ const ChallengeDetail: React.FC = () => {
 
             {/* Calendar Grid */}
             <div className="enhanced-card p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Progress</h3>
+                <h3 className="text-lg font-semibold text-github mb-4">Daily Progress</h3>
                 <div className="grid grid-cols-10 gap-2">
                     {challenge.completedDays.slice(0, 100).map((completed, index) => (
                         <div

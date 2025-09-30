@@ -16,21 +16,21 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge, onToggleDay })
   const completedCount = challenge.completedDays.filter(Boolean).length;
 
   return (
-    <div className="rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow animate-slide-up">
+    <div className="enhanced-card rounded-xl p-6 hover:shadow-md transition-all animate-slide-up">
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
           <Link
             to={`/challenges/${challenge.id}`}
-            className="text-lg font-semibold hover:text-primary-600 transition-colors"
+            className="text-lg font-semibold text-[var(--text)] hover:text-[var(--accent)] transition-colors"
           >
             {challenge.title}
           </Link>
-          <p className="mt-1 line-clamp-2">{challenge.description}</p>
+          <p className="mt-1 text-[var(--text)] opacity-80 line-clamp-2">{challenge.description}</p>
         </div>
 
         <div className={`px-3 py-1 rounded-full text-sm font-medium ${challenge.isActive
-            ? 'bg-success-100 text-success-800'
-            : 'bg-gray-100 text-gray-800'
+            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+            : 'bg-[var(--primary)] text-[var(--text)]'
           }`}>
           {challenge.isActive ? 'Active' : 'Paused'}
         </div>
@@ -38,31 +38,31 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge, onToggleDay })
 
       <div className="space-y-4">
         <div className="grid grid-cols-3 gap-4 text-center">
-          <div className="border-2 rounded-lg p-3">
-            <div className="text-2xl font-bold text-primary-600">{challenge.currentDay}</div>
-            <div className="text-sm text-gray-600">Current Day</div>
+          <div className="border-2 border-[var(--secondary)] rounded-lg p-3">
+            <div className="text-2xl font-bold text-[var(--accent)]">{challenge.currentDay}</div>
+            <div className="text-sm text-[var(--text)] opacity-70">Current Day</div>
           </div>
 
-          <div className="border-2 rounded-lg p-3">
-            <div className="text-2xl font-bold text-success-600">{completedCount}</div>
-            <div className="text-sm text-gray-600">Completed</div>
+          <div className="border-2 border-[var(--secondary)] rounded-lg p-3">
+            <div className="text-2xl font-bold text-green-500">{completedCount}</div>
+            <div className="text-sm text-[var(--text)] opacity-70">Completed</div>
           </div>
 
-          <div className="border-2 rounded-lg p-3">
-            <div className="text-2xl font-bold text-warning-600">{100 - challenge.currentDay}</div>
-            <div className="text-sm text-gray-600">Remaining</div>
+          <div className="border-2 border-[var(--secondary)] rounded-lg p-3">
+            <div className="text-2xl font-bold text-orange-500">{100 - challenge.currentDay}</div>
+            <div className="text-sm text-[var(--text)] opacity-70">Remaining</div>
           </div>
         </div>
 
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">Progress</span>
-            <span className="text-sm font-medium text-gray-900">{Math.round(progress)}%</span>
+            <span className="text-sm text-[var(--text)] opacity-70">Progress</span>
+            <span className="text-sm font-medium text-[var(--text)]">{Math.round(progress)}%</span>
           </div>
           <ProgressBar progress={progress} color="primary" />
         </div>
 
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-sm text-[var(--text)] opacity-70">
           <div className="flex items-center space-x-2">
             <Calendar size={16} />
             <span>Started {formatDate(challenge.startDate)}</span>
@@ -72,8 +72,8 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge, onToggleDay })
             <button
               onClick={() => onToggleDay(daysSinceStart)}
               className={`flex items-center space-x-2 px-3 py-1 rounded-lg transition-colors ${challenge.completedDays[daysSinceStart - 1]
-                  ? 'bg-success-100 text-success-700'
-                  : 'bg-primary-100 text-primary-700 hover:bg-primary-200'
+                  ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200'
+                  : 'bg-[var(--primary)] text-[var(--text)] hover:bg-[var(--secondary)]'
                 }`}
             >
               <CheckCircle size={16} />

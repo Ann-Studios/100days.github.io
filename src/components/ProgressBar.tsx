@@ -14,21 +14,21 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   color = 'primary'
 }) => {
   const colorClasses = {
-    primary: 'bg-[var(--color-accent)]',
+    primary: 'bg-[var(--accent)]',
     success: 'bg-green-500',
     warning: 'bg-orange-500',
   };
 
   return (
     <div className={`relative ${className}`}>
-      <div className="w-full bg-[var(--color-bg-secondary)] rounded-full h-3 overflow-hidden">
+      <div className="w-full bg-[var(--secondary)] rounded-full h-3 overflow-hidden">
         <div
           className={`h-full ${colorClasses[color]} transition-all duration-500 ease-out rounded-full`}
           style={{ width: `${Math.min(progress, 100)}%` }}
         />
       </div>
       {showPercentage && (
-        <span className="absolute right-0 -top-6 text-sm text-[var(--color-text-secondary)] font-medium">
+        <span className="absolute right-0 -top-6 text-sm text-[var(--text)] opacity-60 font-medium">
           {Math.round(progress)}%
         </span>
       )}

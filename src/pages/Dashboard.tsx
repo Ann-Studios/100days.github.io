@@ -43,69 +43,56 @@ const Dashboard: React.FC = () => {
   const totalCompletedDays = challenges.reduce((sum, c) => sum + c.completedDays.filter(Boolean).length, 0);
 
   return (
-    <div className="geometric-shapes dashboard-shapes animate-fade-in">
-      <div className="shape-1"></div>
-      <div className="shape-2"></div>
-      <div className="shape-3"></div>
-      <div className="shape-4"></div>
-      <div className="shape-5"></div>
 
       <div className="relative-z-10 space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-4xl font-bold text-github">
             Welcome to Your Journey
           </h1>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto text-github">
             Track your progress, share your thoughts, and stay motivated on your 100-day challenges.
           </p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="enhanced-card p-6 rounded-xl">
+          <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-primary-100 rounded-lg">
-                <Target className="w-6 h-6 text-primary-600" />
-              </div>
+            <div class="p-2 bg-primary-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-primary-600"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
               <div>
-                <div className="text-2xl font-bold">{totalChallenges}</div>
+                <div className="text-2xl font-bold text-github">{totalChallenges}</div>
                 <div className="text-sm text-gray-600">Total Challenges</div>
               </div>
             </div>
           </div>
 
-          <div className="enhanced-card p-6 rounded-xl">
+          <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-success-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-success-600" />
-              </div>
+            <div class="p-2 bg-success-100 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6 text-success-600"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
               <div>
-                <div className="text-2xl font-bold">{completedChallenges}</div>
+                <div className="text-2xl font-bold text-github">{completedChallenges}</div>
                 <div className="text-sm text-gray-600">Completed</div>
               </div>
             </div>
           </div>
 
-          <div className="enhanced-card p-6 rounded-xl">
+          <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-warning-100 rounded-lg">
-                <Calendar className="w-6 h-6 text-warning-600" />
-              </div>
+            <div class="p-2 bg-warning-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-6 h-6 text-warning-600"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg></div>
               <div>
-                <div className="text-2xl font-bold">{totalCompletedDays}</div>
+                <div className="text-2xl font-bold text-github">{totalCompletedDays}</div>
                 <div className="text-sm text-gray-600">Days Completed</div>
               </div>
             </div>
           </div>
 
-          <div className="enhanced-card p-6 rounded-xl">
+          <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <BookOpen className="w-6 h-6 text-purple-600" />
-              </div>
+            <div class="p-2 bg-purple-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-6 h-6 text-purple-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
               <div>
-                <div className="text-2xl font-bold">{totalPosts}</div>
+                <div className="text-2xl font-bold text-github">{totalPosts}</div>
                 <div className="text-sm text-gray-600">Blog Posts</div>
               </div>
             </div>
@@ -114,20 +101,20 @@ const Dashboard: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="grid md:grid-cols-2 gap-4">
-          <Link
-            to="/challenges/new"
-            className="enhanced-card bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-white/20 rounded-lg">
-                <Plus className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">Start New Challenge</h3>
-                <p className="text-primary-100">Begin your next 100-day journey</p>
-              </div>
+        <Link
+          to="/challenges/new"
+          className="enhanced-card bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+        >
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-white/20 rounded-lg">
+              <Plus className="w-6 h-6" />
             </div>
-          </Link>
+            <div>
+              <h3 className="text-lg font-semibold">Start New Challenge</h3>
+              <p className="text-blue-100">Begin your next 100-day journey</p>
+            </div>
+          </div>
+        </Link>
 
           <Link
             to="/blog/new"
@@ -148,10 +135,10 @@ const Dashboard: React.FC = () => {
         {/* Active Challenges */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Active Challenges</h2>
+            <h2 className="text-2xl font-bold text-github">Active Challenges</h2>
             <Link
               to="/challenges"
-              className="text-primary-600 hover:text-primary-700 font-medium"
+              className="text-github-accent hover:text-blue-700 font-medium"
             >
               View all →
             </Link>
@@ -170,11 +157,11 @@ const Dashboard: React.FC = () => {
           ) : (
             <div className="enhanced-card geometric-pattern text-center py-12 rounded-xl">
               <Target className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No active challenges</h3>
+              <h3 className="text-lg font-medium text-github mb-2">No active challenges</h3>
               <p className="text-gray-600 mb-4">Start your first 100-day challenge and begin your journey!</p>
               <Link
                 to="/challenges/new"
-                className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                className="btn-github-primary px-6 py-2 rounded-lg transition-colors"
               >
                 Create Your First Challenge
               </Link>
@@ -185,10 +172,10 @@ const Dashboard: React.FC = () => {
         {/* Recent Blog Posts */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Recent Posts</h2>
+            <h2 className="text-2xl font-bold text-github">Recent Posts</h2>
             <Link
               to="/blog"
-              className="text-primary-600 hover:text-primary-700 font-medium"
+              className="text-github-accent hover:text-blue-700 font-medium"
             >
               View all →
             </Link>
@@ -203,11 +190,11 @@ const Dashboard: React.FC = () => {
           ) : (
             <div className="enhanced-card geometric-pattern text-center py-12 rounded-xl">
               <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No blog posts yet</h3>
+              <h3 className="text-lg font-medium text-github mb-2">No blog posts yet</h3>
               <p className="text-gray-600 mb-4">Start documenting your journey with your first post!</p>
               <Link
                 to="/blog/new"
-                className="bg-success-600 text-white px-6 py-2 rounded-lg hover:bg-success-700 transition-colors"
+                className="btn-github-primary px-6 py-2 rounded-lg transition-colors"
               >
                 Write Your First Post
               </Link>
@@ -215,7 +202,6 @@ const Dashboard: React.FC = () => {
           )}
         </div>
       </div>
-    </div>
   );
 };
 

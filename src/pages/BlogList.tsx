@@ -1,4 +1,3 @@
-// BlogList.tsx - Add safety checks
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Search, Filter } from 'lucide-react';
@@ -10,13 +9,9 @@ const BlogList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
 
-  // Safety check - ensure blogPosts is always an array
   const safeBlogPosts = Array.isArray(blogPosts) ? blogPosts : [];
-
-  // Get all unique tags
   const allTags = [...new Set(safeBlogPosts.flatMap(post => post.tags || []))];
 
-  // Filter posts
   const filteredPosts = safeBlogPosts.filter(post => {
     const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -31,7 +26,6 @@ const BlogList: React.FC = () => {
 
   return (
     <div className="geometric-shapes blog-shapes animate-fade-in">
-      {/* Geometric Shapes */}
       <div className="shape-1"></div>
       <div className="shape-2"></div>
       <div className="shape-3"></div>
@@ -41,13 +35,13 @@ const BlogList: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
           <div>
-            <h1 className="text-3xl font-bold">Blog Posts</h1>
-            <p className="mt-1">Share your thoughts and document your journey</p>
+            <h1 className="text-3xl font-bold text-github">Blog Posts</h1>
+            <p className="mt-1 text-github">Share your thoughts and document your journey</p>
           </div>
 
           <Link
             to="/blog/new"
-            className="flex items-center space-x-2 bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors w-fit"
+            className="flex items-center space-x-2 btn-github-primary px-6 py-3 rounded-lg transition-colors w-fit"
           >
             <Plus size={20} />
             <span>New Post</span>
@@ -64,7 +58,7 @@ const BlogList: React.FC = () => {
                 placeholder="Search posts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-github rounded-lg focus:ring-2 focus:ring-github-accent focus:border-transparent"
               />
             </div>
 
@@ -73,7 +67,7 @@ const BlogList: React.FC = () => {
               <select
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
-                className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent min-w-40"
+                className="pl-10 pr-8 py-2 border border-github rounded-lg focus:ring-2 focus:ring-github-accent focus:border-transparent min-w-40"
               >
                 <option value="">All Tags</option>
                 {allTags.map(tag => (
@@ -94,13 +88,13 @@ const BlogList: React.FC = () => {
         ) : safeBlogPosts.length === 0 ? (
           <div className="enhanced-card geometric-pattern text-center py-20 rounded-xl">
             <div className="text-6xl mb-4">✍️</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Start Your Blog Journey</h3>
+            <h3 className="text-xl font-semibold text-github mb-2">Start Your Blog Journey</h3>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">
               Document your progress, share insights, and reflect on your experiences with your first blog post.
             </p>
             <Link
               to="/blog/new"
-              className="bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors"
+              className="btn-github-primary px-6 py-3 rounded-lg transition-colors"
             >
               Write Your First Post
             </Link>
@@ -108,7 +102,7 @@ const BlogList: React.FC = () => {
         ) : (
           <div className="enhanced-card geometric-pattern text-center py-20 rounded-xl">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No posts found</h3>
+            <h3 className="text-xl font-semibold text-github mb-2">No posts found</h3>
             <p className="text-gray-600">Try adjusting your search or filter criteria.</p>
           </div>
         )}
