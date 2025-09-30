@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Save, X } from 'lucide-react';
-import { useBlogPosts } from '../../hooks/useBlogPosts';
+import { useBlogPosts } from '../hooks/useBlogPosts';
 import { generateId } from '../utils/dateUtils';
 
 const NewBlogPost: React.FC = () => {

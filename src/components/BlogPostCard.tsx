@@ -20,6 +20,12 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
             {post.title}
           </Link>
           <p className="text-[var(--text)] opacity-70 mt-2 line-clamp-3">{post.excerpt}</p>
+          <Link
+            to={`/blog/${post.id}`}
+            className="btn-github mt-4 inline-block"
+          >
+            Read More
+          </Link>
         </div>
 
         <div className="flex items-center justify-between pt-4 border-t border-[var(--secondary)]">

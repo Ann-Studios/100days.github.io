@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-            <div class="p-2 bg-primary-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-primary-600"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
+            <div className="p-2 bg-primary-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-target w-6 h-6 text-primary-600"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
               <div>
                 <div className="text-2xl font-bold text-github">{totalChallenges}</div>
                 <div className="text-sm text-gray-600">Total Challenges</div>
@@ -69,8 +69,8 @@ const Dashboard: React.FC = () => {
 
           <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-            <div class="p-2 bg-success-100 rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6 text-success-600"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
+            <div className="p-2 bg-success-100 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trending-up w-6 h-6 text-success-600"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
               <div>
                 <div className="text-2xl font-bold text-github">{completedChallenges}</div>
                 <div className="text-sm text-gray-600">Completed</div>
@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
 
           <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-            <div class="p-2 bg-warning-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-6 h-6 text-warning-600"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg></div>
+            <div className="p-2 bg-warning-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-calendar w-6 h-6 text-warning-600"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg></div>
               <div>
                 <div className="text-2xl font-bold text-github">{totalCompletedDays}</div>
                 <div className="text-sm text-gray-600">Days Completed</div>
@@ -90,7 +90,7 @@ const Dashboard: React.FC = () => {
 
           <div className="stats-card-github p-6 rounded-xl">
             <div className="flex items-center space-x-3">
-            <div class="p-2 bg-purple-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-6 h-6 text-purple-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+            <div className="p-2 bg-purple-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-book-open w-6 h-6 text-purple-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
               <div>
                 <div className="text-2xl font-bold text-github">{totalPosts}</div>
                 <div className="text-sm text-gray-600">Blog Posts</div>

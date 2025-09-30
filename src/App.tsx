@@ -7,6 +7,7 @@ import NewBlogPost from './pages/NewBlogPost';
 import NewChallenge from './pages/NewChallenge';
 import ChallengeDetail from './pages/ChallengeDetail';
 import Dashboard from './pages/Dashboard';
+import PostDetail from './pages/PostDetail';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="challenges" element={<ChallengeList />} />
             <Route path="challenges/new" element={<NewChallenge />} />
             <Route path="challenges/:id" element={<ChallengeDetail />} />
+            <Route path="/blog/:id" element={<PostDetail />} />
           </Route>
         </Routes>
       </div>
